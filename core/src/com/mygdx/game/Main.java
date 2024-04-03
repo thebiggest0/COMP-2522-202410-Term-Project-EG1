@@ -3,29 +3,25 @@ package com.mygdx.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Main extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture img;
-	
-	@Override
-	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
-	}
+	Texture imagePlayer;
+	Texture imageLaser;
+	Texture imageTieFighter;
+	Player player;
+	TieFighter[] tieFighter;
+	int widthCount = 4;
+	int heightCount = 3;
+	int spacingTieFighter = 50;
+	int minXTieFighter;
+	int minYTieFighter;
+	int maxXTieFighter;
+	int maxYTieFighter;
+	int directionTieFighter = 1;
+	float speedTieFighter = 100;
 
-	@Override
-	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
-	}
-	
-	@Override
-	public void dispose () {
-		batch.dispose();
-		img.dispose();
-	}
+	Vector2 offsetTieFighter;
 }
