@@ -7,6 +7,13 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
+/**
+ * Represents Player.
+ *
+ * @author Yifei, Steven
+ * @version 2024
+ */
+
 public class Player {
     public Vector2 position;
     public Vector2 positionBullet;

@@ -6,6 +6,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.graphics.Color;
 
+/**
+ * Represents Tie Fighter.
+ *
+ * @author Yifei, Steven
+ * @version 2024
+ */
+
 public class TieFighter {
     public Vector2 position;
     public Vector2 position_initial;

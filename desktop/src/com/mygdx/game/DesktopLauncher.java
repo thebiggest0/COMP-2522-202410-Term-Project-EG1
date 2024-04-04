@@ -5,6 +5,14 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.mygdx.game.Main;
 
 // Please note that on macOS your application needs to be started with the -XstartOnFirstThread JVM argument
+
+/**
+ * Drives the desktop game.
+ *
+ * @author Yifei, Steven
+ * @version 2024
+ */
+
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
