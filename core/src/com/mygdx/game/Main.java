@@ -8,6 +8,13 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+/**
+ * Manages the game logic.
+ *
+ * @author Yifei, Steven
+ * @version 2024
+ */
+
 public class Main extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture imagePlayer;
@@ -28,6 +35,9 @@ public class Main extends ApplicationAdapter {
 
 	Vector2 offsetTieFighter;
 
+	/**
+	 * Initializes the game resources and objects.
+	 */
 	@Override
 	public void create () {
 		offsetTieFighter = Vector2.Zero;
@@ -52,6 +62,9 @@ public class Main extends ApplicationAdapter {
 		}
 	}
 
+	/**
+	 * Updates and renders the game state.
+	 */
 	@Override
 	public void render () {
 		float deltaTime = Gdx.graphics.getDeltaTime();
@@ -137,6 +150,9 @@ public class Main extends ApplicationAdapter {
 		batch.end();
     }
 
+	/**
+	 * Releases resources when the application is destroyed.
+	 */
 	@Override
 	public void dispose () {
 		batch.dispose();
