@@ -31,7 +31,7 @@ public class Player {
     }
 
     public void Update(float deltaTime) {
-        if (Gdx.input.isButtonJustPressed(0) && positionBullet.y >= Gdx.graphics.getHeight()) {
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && positionBullet.y >= Gdx.graphics.getHeight()) {
             positionBullet.x = position.x + 5;
             positionBullet.y = 0;
         }
