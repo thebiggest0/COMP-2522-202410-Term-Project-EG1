@@ -6,20 +6,19 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-
 /**
- * Manages the gameplay logic.
+ * Manages Boss.
  *
  * @author Yifei, Steven
  * @version 2024
  */
+
 public class Boss {
     public Vector2 position;
-    private Texture texture;
+    private final Texture texture;
     private int hp;
-    private Rectangle boundingBox;
-    private int scale = 20;
-    private float speed = 50;
+    private final Rectangle boundingBox;
+    private final int scale = 20;
 
     public Boss(Vector2 position) {
 //        this.position = position;
@@ -46,6 +45,7 @@ public class Boss {
     }
 
     public void update(float deltaTime) {
+        float speed = 50;
         position.y -= speed * deltaTime;
         updateBoundingBox();
     }
