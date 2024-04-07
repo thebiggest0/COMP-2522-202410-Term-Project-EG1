@@ -1,13 +1,7 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.ScreenUtils;
+
 
 /**
  * Manages the game logic.
@@ -17,6 +11,9 @@ import com.badlogic.gdx.utils.ScreenUtils;
  */
 
 public class Main extends Game {
+	/**
+	 * Sets the initial screen of the game to a {@link StartScreen} instance.
+	 */
 	@Override
 	public void create() {
 		this.setScreen(new StartScreen(this));

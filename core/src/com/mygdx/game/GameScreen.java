@@ -144,9 +144,9 @@ public class GameScreen extends ScreenAdapter {
                         boss.update(delta);
                         boss.draw(batch);
                         if (boss.getBoundingBox().overlaps(player.sprite.getBoundingRectangle())) {
-                            this.game.setScreen(new EndScreen(game, this.score));
+                            this.game.setScreen(new EndScreen(this.score));
                         } else if (boss.position.y <= 0) {
-                            this.game.setScreen(new EndScreen(game, this.score));
+                            this.game.setScreen(new EndScreen(this.score));
                         }
                         if (player.spriteBullet.getBoundingRectangle().overlaps(boss.getBoundingBox())) {
                             boss.hit();
@@ -155,7 +155,7 @@ public class GameScreen extends ScreenAdapter {
                         }
                     } else {
                         this.score += 1000000;
-                        this.game.setScreen(new EndScreen(game, this.score));
+                        this.game.setScreen(new EndScreen(this.score));
                     }
 
                 }
@@ -175,7 +175,7 @@ public class GameScreen extends ScreenAdapter {
                 }
 
                 if (tieFighter[minYTieFighter].position.y <= 0) {
-                    this.game.setScreen(new EndScreen(game, this.score));
+                    this.game.setScreen(new EndScreen(this.score));
                 }
 
                 for (int i = 0; i < tieFighterLength; i++) {
@@ -184,7 +184,7 @@ public class GameScreen extends ScreenAdapter {
                         tieFighter[i].Draw(batch);
 
                         if (tieFighter[i].sprite.getBoundingRectangle().overlaps(player.sprite.getBoundingRectangle())) {
-                            this.game.setScreen(new EndScreen(game, this.score));
+                            this.game.setScreen(new EndScreen(this.score));
                         }
                     }
                 }
