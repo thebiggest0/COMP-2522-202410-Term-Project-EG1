@@ -10,6 +10,12 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
+/**
+ * Manages the gameplay logic.
+ *
+ * @author Yifei, Steven
+ * @version 2024
+ */
 public class GameScreen extends ScreenAdapter {
     SpriteBatch batch;
     Texture imagePlayer;
@@ -56,10 +62,6 @@ public class GameScreen extends ScreenAdapter {
                 i++;
             }
         }
-    }
-
-    public int getScore() {
-        return this.score;
     }
 
     @Override
