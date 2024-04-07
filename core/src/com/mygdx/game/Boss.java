@@ -2,17 +2,23 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
+
+/**
+ * Manages the gameplay logic.
+ *
+ * @author Yifei, Steven
+ * @version 2024
+ */
 public class Boss {
     public Vector2 position;
     private Texture texture;
     private int hp;
     private Rectangle boundingBox;
-    private int scale = 20; // Adjust this value to scale the boss size
+    private int scale = 20;
     private float speed = 50;
 
     public Boss(Vector2 position) {
@@ -39,7 +45,6 @@ public class Boss {
         return boundingBox;
     }
 
-    // Add methods to update the boss's position and bounding box if needed
     public void update(float deltaTime) {
         position.y -= speed * deltaTime;
         updateBoundingBox();
