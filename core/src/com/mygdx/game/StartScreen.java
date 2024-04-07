@@ -7,10 +7,9 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 
 /**
- * Represents Start Screen.
+ * Represents Start Screen of the game.
  *
  * @author Yifei, Steven
  * @version 2024
@@ -21,12 +20,22 @@ public class StartScreen extends ScreenAdapter {
     private final BitmapFont font;
     private final Game game;
 
+    /**
+     * Constructs a new StartScreen instance associated with the provided game instance.
+     *
+     * @param game The main game instance this StartScreen belongs to.
+     */
     public StartScreen(Game game) {
         this.game = game;
         batch = new SpriteBatch();
         font = new BitmapFont();
     }
 
+    /**
+     * Renders the Start Screen's visuals and handles user input for transitioning to the game screen.
+     *
+     * @param delta The time elapsed since the last frame, in seconds.
+     */
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -42,6 +51,9 @@ public class StartScreen extends ScreenAdapter {
         }
     }
 
+    /**
+     * Frees resources used by the StartScreen instance.
+     */
     @Override
     public void dispose() {
         batch.dispose();

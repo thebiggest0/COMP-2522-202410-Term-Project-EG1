@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 /**
- * Manages the gameplay logic.
+ * Represents the main game screen.
  *
  * @author Yifei, Steven
  * @version 2024
@@ -34,13 +34,18 @@ public class GameScreen extends ScreenAdapter {
     int directionTieFighter = 1;
     int score = 0;
     float speedTieFighter = 100;
-    private BitmapFont font;
-    private Game game;
-    private Boss boss;
+    private final BitmapFont font;
+    private final Game game;
+    private final Boss boss;
     private int count = 0;
 
     Vector2 offsetTieFighter;
 
+    /**
+     * Constructs a new GameScreen instance associated with the provided game instance.
+     *
+     * @param game The main game instance this GameScreen belongs to.
+     */
     public GameScreen(Game game) {
         this.game = game;
         font = new BitmapFont();
@@ -67,6 +72,11 @@ public class GameScreen extends ScreenAdapter {
         boss = new Boss(new Vector2(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f));
     }
 
+/**
+ * Renders the game screen visuals, handles player input, updates game state, and checks for win/lose conditions.
+ *
+ * @param delta The time elapsed since the last frame, in seconds.
+ */
     @Override
     public void render (float delta) {
 //        int count = 0;
@@ -187,6 +197,9 @@ public class GameScreen extends ScreenAdapter {
         }
     }
 
+    /**
+     * Frees resources used by the StartScreen instance.
+     */
     @Override
     public void dispose() {
         batch.dispose();

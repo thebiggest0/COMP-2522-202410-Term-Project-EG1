@@ -8,19 +8,49 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- * Represents Player.
+ * Represents the player's ship in the game world.
  *
  * @author Yifei, Steven
  * @version 2024
  */
 
 public class Player {
+    /**
+     * The current position of the player's ship in the game world.
+     */
     public Vector2 position;
+
+    /**
+     * The current position of the player's bullet, initially off-screen.
+     */
     public Vector2 positionBullet;
+
+    /**
+     * The visual representation of the player's ship as a Sprite object.
+     */
     public Sprite sprite;
+
+    /**
+     * The visual representation of the player's bullet as a Sprite object.
+     */
     public Sprite spriteBullet;
+
+    /**
+     * The movement speed of the player's ship in units per second.
+     */
     public float speed = 500;
+
+    /**
+     * The movement speed of the player's bullet in units per second.
+     */
     public float speedBullet = 1000;
+
+    /**
+     * Constructs a new Player instance with the specified textures for the ship and bullet.
+     *
+     * @param image The Texture object representing the player's ship's appearance.
+     * @param imageBullet The Texture object representing the player's bullet's appearance.
+     */
     public Player(Texture image, Texture imageBullet) {
         sprite = new Sprite(image);
         spriteBullet = new Sprite(imageBullet);
@@ -30,6 +60,10 @@ public class Player {
         positionBullet = new Vector2(0, 1000);
     }
 
+    /**
+     * Updates the player's movement and bullet position based on user input and elapsed time.
+     * @param deltaTime The time elapsed since the last frame, in seconds.
+     */
     public void Update(float deltaTime) {
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && positionBullet.y >= Gdx.graphics.getHeight()) {
             positionBullet.x = position.x + 5;
@@ -53,6 +87,10 @@ public class Player {
         positionBullet.y += deltaTime * speedBullet;
     }
 
+    /**
+     * Draws the player's ship and bullet on the provided SpriteBatch.
+     * @param batch The SpriteBatch object used for rendering 2D graphics.
+     */
     public void Draw(SpriteBatch batch) {
         Update(Gdx.graphics.getDeltaTime());
         sprite.setPosition(position.x, position.y);
