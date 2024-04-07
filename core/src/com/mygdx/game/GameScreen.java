@@ -36,6 +36,8 @@ public class GameScreen extends ScreenAdapter {
     float speedTieFighter = 100;
     private BitmapFont font;
     private Game game;
+    private Boss boss;
+    private int count = 0;
 
     Vector2 offsetTieFighter;
 
@@ -62,11 +64,12 @@ public class GameScreen extends ScreenAdapter {
                 i++;
             }
         }
+        boss = new Boss(new Vector2(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f));
     }
 
     @Override
     public void render (float delta) {
-        int count = 0;
+//        int count = 0;
         try {
             float deltaTime = Gdx.graphics.getDeltaTime();
             ScreenUtils.clear(0, 0, 0, 1);
@@ -117,44 +120,67 @@ public class GameScreen extends ScreenAdapter {
             }
 
             if (amountTieFighterAlive == 0) {
-                count ++;
-                if (count == 1) {
+                this.count++;
+                if (this.count < 1) {
+                    speedTieFighter += 20;
+                    for (int i = 0; i < tieFighterLength; i++) {
+                        tieFighter[i].Alive = true;
+                    }
+                    offsetTieFighter = new Vector2(0, 0);
+                    batch.end();
+                    return;
+                } else if (this.count > 1) {
+                    if (boss.getHp() > 0) {
+                        boss.update(delta);
+                        boss.draw(batch);
+                        if (boss.getBoundingBox().overlaps(player.sprite.getBoundingRectangle())) {
+                            this.game.setScreen(new EndScreen(game, this.score));
+                        } else if (boss.position.y <= 0) {
+                            this.game.setScreen(new EndScreen(game, this.score));
+                        }
+                        if (player.spriteBullet.getBoundingRectangle().overlaps(boss.getBoundingBox())) {
+                            boss.hit();
+                            player.positionBullet.y = 1000; // Reset the bullet position or disable it
+                            this.score += 100;
+                        }
+                    } else {
+                        this.score += 1000000;
+                        this.game.setScreen(new EndScreen(game, this.score));
+                    }
+
+                }
+            }
+
+
+            if (amountTieFighterAlive != 0) {
+                offsetTieFighter.x += directionTieFighter * deltaTime * speedTieFighter;
+                if (tieFighter[maxXTieFighter].position.x >= Gdx.graphics.getWidth()) {
+                    directionTieFighter = -1;
+
+                    offsetTieFighter.y -= tieFighter[0].sprite.getHeight() * tieFighter[0].sprite.getScaleY() * 0.25f;
+                }
+                if (tieFighter[minXTieFighter].position.x <= 0) {
+                    directionTieFighter = 1;
+                    offsetTieFighter.y -= tieFighter[0].sprite.getHeight() * tieFighter[0].sprite.getScaleY() * 0.25f;
+                }
+
+                if (tieFighter[minYTieFighter].position.y <= 0) {
                     this.game.setScreen(new EndScreen(game, this.score));
                 }
-                speedTieFighter += 20;
+
                 for (int i = 0; i < tieFighterLength; i++) {
-                    tieFighter[i].Alive = true;
-                }
-                offsetTieFighter = new Vector2(0,0);
-                batch.end();
-                return;
-            }
+                    tieFighter[i].position = new Vector2 (tieFighter[i].position_initial.x + offsetTieFighter.x, tieFighter[i].position_initial.y + offsetTieFighter.y);
+                    if (tieFighter[i].Alive) {
+                        tieFighter[i].Draw(batch);
 
-            offsetTieFighter.x += directionTieFighter * deltaTime * speedTieFighter;
-            if (tieFighter[maxXTieFighter].position.x >= Gdx.graphics.getWidth()) {
-                directionTieFighter = -1;
-
-                offsetTieFighter.y -= tieFighter[0].sprite.getHeight() * tieFighter[0].sprite.getScaleY() * 0.25f;
-            }
-            if (tieFighter[minXTieFighter].position.x <= 0) {
-                directionTieFighter = 1;
-                offsetTieFighter.y -= tieFighter[0].sprite.getHeight() * tieFighter[0].sprite.getScaleY() * 0.25f;
-            }
-
-            if (tieFighter[minYTieFighter].position.y <= 0) {
-                this.game.setScreen(new EndScreen(game, this.score));
-            }
-
-            for (int i = 0; i < tieFighterLength; i++) {
-                tieFighter[i].position = new Vector2 (tieFighter[i].position_initial.x + offsetTieFighter.x, tieFighter[i].position_initial.y + offsetTieFighter.y);
-                if (tieFighter[i].Alive) {
-                    tieFighter[i].Draw(batch);
-
-                    if (tieFighter[i].sprite.getBoundingRectangle().overlaps(player.sprite.getBoundingRectangle())) {
-                        this.game.setScreen(new EndScreen(game, this.score));
+                        if (tieFighter[i].sprite.getBoundingRectangle().overlaps(player.sprite.getBoundingRectangle())) {
+                            this.game.setScreen(new EndScreen(game, this.score));
+                        }
                     }
                 }
             }
+
+
             batch.end();
         } catch (Exception e) {
             throw new RuntimeException(e);
