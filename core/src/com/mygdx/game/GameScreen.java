@@ -10,6 +10,13 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
+/**
+ * Represents Game Screen.
+ *
+ * @author Yifei, Steven
+ * @version 2024
+ */
+
 public class GameScreen extends ScreenAdapter {
     SpriteBatch batch;
     Texture imagePlayer;
@@ -28,8 +35,8 @@ public class GameScreen extends ScreenAdapter {
     int directionTieFighter = 1;
     int score = 0;
     float speedTieFighter = 100;
-    private BitmapFont font;
-    private Game game;
+    private final BitmapFont font;
+    private final Game game;
 
     Vector2 offsetTieFighter;
 
