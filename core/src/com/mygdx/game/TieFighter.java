@@ -18,7 +18,7 @@ public class TieFighter {
     public Vector2 position_initial;
     public Sprite sprite;
     public Boolean Alive = true;
-    // 5:34
+
     public TieFighter(Vector2 _position, Texture image, Color color) {
         position = _position;
         position_initial = position;
