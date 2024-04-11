@@ -13,7 +13,7 @@ import com.badlogic.gdx.graphics.Color;
  * @version 2024
  */
 
-public class TieFighter {
+public class TieFighter implements Enemy {
 
     /**
      * The current position of the Tie Fighter in the game world.
@@ -55,7 +55,7 @@ public class TieFighter {
      *
      * @param batch The SpriteBatch object used for rendering 2D graphics.
      */
-    public void Draw(SpriteBatch batch) {
+    public void draw(SpriteBatch batch) {
         sprite.setPosition(position.x, position.y);
         sprite.draw(batch);
     }

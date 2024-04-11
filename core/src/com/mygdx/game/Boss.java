@@ -13,7 +13,7 @@ import com.badlogic.gdx.math.Vector2;
  * @version 2024
  */
 
-public class Boss {
+public class Boss implements Enemy{
     /**
      * The current position of the boss on the screen.
      */
