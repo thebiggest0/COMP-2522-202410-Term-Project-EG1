@@ -1,5 +1,5 @@
 # COMP-2522-202410-Term Project
-
+![demo](demo.png)
 
 ## Your names:
 Yifei Zeng
@@ -41,9 +41,9 @@ The project leverages OOP concepts to structure the code effectively:
 - `Main.java`: The game's entry point, responsible for initialization and setting the starting screen.
 - `GameScreen.java`: The core gameplay screen where players interact with enemies and manage game state.
 - `EndScreen.java`: Displays the final score and provides an exit option after the game concludes.
-- `Boss.java` (if applicable): Manages the boss enemy's behavior, health, and movement.
-- `Player.java` (assumed): Handles player ship movement, shooting, and damage calculations.
-- `TieFighter.java` (assumed): Represents the enemy Tie Fighters, including their movement patterns and collision detection.
+- `Boss.java` : Manages the boss enemy's behavior, health, and movement.
+- `Player.java` : Handles player ship movement, shooting, and damage calculations.
+- `TieFighter.java` : Represents the enemy Tie Fighters, including their movement patterns and collision detection.
 
 ## Data Structures
 
