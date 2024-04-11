@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 /**
  * Represents Enemy.
  *
@@ -7,5 +9,6 @@ package com.mygdx.game;
  * @version 2024
  */
 
-public class Enemy {
+public interface Enemy {
+    void draw(SpriteBatch batch);
 }
