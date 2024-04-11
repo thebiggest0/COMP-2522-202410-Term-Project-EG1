@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -21,6 +22,7 @@ public class GameScreen extends ScreenAdapter {
     Texture imagePlayer;
     Texture imageLaser;
     Texture imageTieFighter;
+    Texture imageBackground;
     Player player;
     TieFighter[] tieFighter;
     int widthCount = 4;
@@ -40,6 +42,8 @@ public class GameScreen extends ScreenAdapter {
     private final Game game;
     private final Boss boss;
     private int count = 0;
+//    private Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music.ogg"));
+
 
     Vector2 offsetTieFighter;
 
@@ -53,9 +57,10 @@ public class GameScreen extends ScreenAdapter {
         font = new BitmapFont();
         offsetTieFighter = Vector2.Zero;
         batch = new SpriteBatch();
-        imagePlayer = new Texture("player.png");
+        imagePlayer = new Texture("player2.png");
         imageLaser = new Texture("bullet.png");
-        imageTieFighter = new Texture("alien.png");
+        imageTieFighter = new Texture("alien2.png");
+        imageBackground = new Texture("background.png");
         player = new Player(imagePlayer, imageLaser);
         tieFighter = new TieFighter[widthCount * heightCount];
         int i = 0;
@@ -81,10 +86,14 @@ public class GameScreen extends ScreenAdapter {
  */
     @Override
     public void render (float delta) {
+//        backgroundMusic.setLooping(true);
+//        backgroundMusic.play();
+
         try {
             float deltaTime = Gdx.graphics.getDeltaTime();
-            ScreenUtils.clear(0, 0, 0, 1);
+//            ScreenUtils.clear(0, 0, 0, 1);
             batch.begin();
+            batch.draw(imageBackground, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
             font.draw(batch, "Score " + this.score, Gdx.graphics.getWidth() / 2f + 200, Gdx.graphics.getHeight() / 2f - 200);
             if (!this.bossStage) {
                 font.draw(batch, "Level " + this.level, Gdx.graphics.getWidth() / 2f - 200, Gdx.graphics.getHeight() / 2f - 200);
@@ -134,7 +143,7 @@ public class GameScreen extends ScreenAdapter {
 
             if (amountTieFighterAlive == 0) {
                 this.count++;
-                if (this.count < 5) {
+                if (this.count < 1) {
                     this.level++;
                     speedTieFighter += 50;
                     for (int i = 0; i < tieFighterLength; i++) {
@@ -143,7 +152,7 @@ public class GameScreen extends ScreenAdapter {
                     offsetTieFighter = new Vector2(0, 0);
                     batch.end();
                     return;
-                } else if (this.count > 5) {
+                } else if (this.count > 1) {
                     this.bossStage = true;
                     font.draw(batch, "Final Boss", Gdx.graphics.getWidth() / 2f - 250, Gdx.graphics.getHeight() / 2f - 200);
                     if (boss.getHp() > 0) {
