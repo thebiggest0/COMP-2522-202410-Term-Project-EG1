@@ -33,6 +33,8 @@ public class GameScreen extends ScreenAdapter {
     int maxYTieFighter;
     int directionTieFighter = 1;
     int score = 0;
+    int level = 1;
+    boolean bossStage = false;
     float speedTieFighter = 100;
     private final BitmapFont font;
     private final Game game;
@@ -79,12 +81,14 @@ public class GameScreen extends ScreenAdapter {
  */
     @Override
     public void render (float delta) {
-//        int count = 0;
         try {
             float deltaTime = Gdx.graphics.getDeltaTime();
             ScreenUtils.clear(0, 0, 0, 1);
             batch.begin();
-            font.draw(batch, "Score " + this.score, Gdx.graphics.getWidth() / 2f - 75, Gdx.graphics.getHeight() / 2f - 50);
+            font.draw(batch, "Score " + this.score, Gdx.graphics.getWidth() / 2f + 200, Gdx.graphics.getHeight() / 2f - 200);
+            if (!this.bossStage) {
+                font.draw(batch, "Level " + this.level, Gdx.graphics.getWidth() / 2f - 200, Gdx.graphics.getHeight() / 2f - 200);
+            }
             player.Draw(batch);
 
 
@@ -95,7 +99,6 @@ public class GameScreen extends ScreenAdapter {
                         player.positionBullet.y = 1000;
                         fighter.Alive = false;
                         this.score += 100;
-                        font.draw(batch, "Score " + this.score, Gdx.graphics.getWidth() / 2f - 75, Gdx.graphics.getHeight() / 2f - 50);
                         break;
                     }
                 }
@@ -131,15 +134,18 @@ public class GameScreen extends ScreenAdapter {
 
             if (amountTieFighterAlive == 0) {
                 this.count++;
-                if (this.count < 1) {
-                    speedTieFighter += 20;
+                if (this.count < 5) {
+                    this.level++;
+                    speedTieFighter += 50;
                     for (int i = 0; i < tieFighterLength; i++) {
                         tieFighter[i].Alive = true;
                     }
                     offsetTieFighter = new Vector2(0, 0);
                     batch.end();
                     return;
-                } else if (this.count > 1) {
+                } else if (this.count > 5) {
+                    this.bossStage = true;
+                    font.draw(batch, "Final Boss", Gdx.graphics.getWidth() / 2f - 250, Gdx.graphics.getHeight() / 2f - 200);
                     if (boss.getHp() > 0) {
                         boss.update(delta);
                         boss.draw(batch);
@@ -154,7 +160,7 @@ public class GameScreen extends ScreenAdapter {
                             this.score += 100;
                         }
                     } else {
-                        this.score += 1000000;
+                        this.score += 1000;
                         this.game.setScreen(new EndScreen(this.score));
                     }
 
@@ -181,7 +187,7 @@ public class GameScreen extends ScreenAdapter {
                 for (int i = 0; i < tieFighterLength; i++) {
                     tieFighter[i].position = new Vector2 (tieFighter[i].position_initial.x + offsetTieFighter.x, tieFighter[i].position_initial.y + offsetTieFighter.y);
                     if (tieFighter[i].Alive) {
-                        tieFighter[i].Draw(batch);
+                        tieFighter[i].draw(batch);
 
                         if (tieFighter[i].sprite.getBoundingRectangle().overlaps(player.sprite.getBoundingRectangle())) {
                             this.game.setScreen(new EndScreen(this.score));
