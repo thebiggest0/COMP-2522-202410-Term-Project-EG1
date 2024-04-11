@@ -42,8 +42,11 @@ public class StartScreen extends ScreenAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
-        font.draw(batch, "Movement: A = Right, D = Left, SPACE = Shoot", Gdx.graphics.getWidth() / 2f - 75, Gdx.graphics.getHeight() / 2f + 50);
-        font.draw(batch, "Click Enter to start game", Gdx.graphics.getWidth() / 2f - 75, Gdx.graphics.getHeight() / 2f - 50);
+        font.draw(batch, "Game Keys", Gdx.graphics.getWidth() / 2f - 90, Gdx.graphics.getHeight() / 2f + 110);
+        font.draw(batch, "Movement Key: A = Right", Gdx.graphics.getWidth() / 2f - 90, Gdx.graphics.getHeight() / 2f + 80);
+        font.draw(batch, "Movement Key: D = Left", Gdx.graphics.getWidth() / 2f - 90, Gdx.graphics.getHeight() / 2f + 50);
+        font.draw(batch, "Combat Key: SPACE = Shoot", Gdx.graphics.getWidth() / 2f - 90, Gdx.graphics.getHeight() / 2f + 20);
+        font.draw(batch, "Click Enter to start game", Gdx.graphics.getWidth() / 2f - 75, Gdx.graphics.getHeight() / 2f - 120);
         batch.end();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
