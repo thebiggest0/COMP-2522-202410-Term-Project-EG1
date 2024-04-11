@@ -22,7 +22,7 @@ public class Boss implements Enemy{
     /**
      * The texture used to render the boss visually.
      */
-    private final Texture texture;
+    public final Texture texture;
 
     /**
      * The current health points (HP) of the boss.
