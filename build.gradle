@@ -59,6 +59,8 @@ project(":core") {
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         testImplementation 'org.mockito:mockito-core:5.11.0'
+        testImplementation 'net.bytebuddy:byte-buddy-agent:1.14.13'
+
 
     }
 }
