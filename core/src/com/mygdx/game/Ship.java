@@ -6,10 +6,10 @@ import java.util.Objects;
  * Demonstrates how guppy can be generated.
  *
  * @author BCIT
- * @author Cai Chun Yan (A01381221)
+ * @author Yifei, Steven
  * @version 2024
  */
-public class Guppy {
+public class Ship {
     /**
      * The age in weeks at which a fish is considered young.
      */
@@ -62,7 +62,7 @@ public class Guppy {
     /**
      * Constructs a Guppy object.
      */
-    public Guppy() {
+    public Ship() {
         this.genus = DEFAULT_GENUS;
         this.species = DEFAULT_SPECIES;
         this.isFemale = true;
@@ -82,8 +82,8 @@ public class Guppy {
      * @param newGenerationNumber an int representing the generation number of the Guppy
      * @param newHealthCoefficient a double representing the health coefficient of the Guppy
      */
-    public Guppy(final String newGenus, final String newSpecies, final int newAgeInWeeks, final boolean newIsFemale,
-                 final int newGenerationNumber, final double newHealthCoefficient) {
+    public Ship(final String newGenus, final String newSpecies, final int newAgeInWeeks, final boolean newIsFemale,
+                final int newGenerationNumber, final double newHealthCoefficient) {
         if (newGenus == null) {
             this.genus = DEFAULT_GENUS;
         } else if (!newGenus.trim().isEmpty()) {
@@ -298,12 +298,12 @@ public class Guppy {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Guppy guppy = (Guppy) o;
-        return ageInWeeks == guppy.ageInWeeks && isFemale == guppy.isFemale
-                && generationNumber == guppy.generationNumber && isAlive == guppy.isAlive
-                && Double.compare(healthCoefficient, guppy.healthCoefficient) == 0
-                && identificationNumber == guppy.identificationNumber && Objects.equals(genus, guppy.genus)
-                && Objects.equals(species, guppy.species);
+        Ship ship = (Ship) o;
+        return ageInWeeks == ship.ageInWeeks && isFemale == ship.isFemale
+                && generationNumber == ship.generationNumber && isAlive == ship.isAlive
+                && Double.compare(healthCoefficient, ship.healthCoefficient) == 0
+                && identificationNumber == ship.identificationNumber && Objects.equals(genus, ship.genus)
+                && Objects.equals(species, ship.species);
     }
 
     /**
