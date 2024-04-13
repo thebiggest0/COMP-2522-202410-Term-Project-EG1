@@ -3,14 +3,17 @@
 
 ## Your names:
 Yifei Zeng
+
 Cai Chun (Steven) Yan
 
 ## Your student numbers:
 A01375821
+
 A01381221
 
 ## Your GitHub names:
 zengyifei327
+
 thebiggest0
 
 # Star Wars Game: A Space Shooter with Thoughtful Design Patterns
@@ -29,7 +32,7 @@ Star Wars Game is a 2D space shooter built with libGDX, demonstrating effective 
 1. **Download and Install libGDX:** Obtain the libGDX libraries from the [official website](https://libgdx.com/).
 2. **Import Project:** Use your preferred IDE (e.g., Eclipse, IntelliJ IDEA) to import this project.
 3. **Verify Dependencies:** Ensure your project is configured with the necessary libGDX dependencies.
-4. **Launch the Game:** Run the `DesktopLauncher` class to embark on your spacefaring adventure.
+4. **Launch the Game:** Go to desktop->src[main]->com.mygdx.game folder, Run the `DesktopLauncher` class to embark on your spacefaring adventure.
 
 For Mac Users (**Extra steps might be required**)
 - In Edit configurations (top right of IDE -> click the ... -> Edit) 
@@ -69,9 +72,11 @@ The project leverages OOP concepts to structure the code effectively:
 
 - **Inheritance:** Consider implementing inheritance if different enemy types (regular Tie Fighters vs. boss) share common properties and behaviors. A base `Enemy` class could be created, with `TieFighter` and `Boss` inheriting from it, promoting code reuse and maintainability.
 - **Abstraction:** Abstract common functionality like movement, collision detection, and health management into the `Player` and `Enemy` classes, promoting cleaner code by separating core functionalities from specific implementations.
-- **Polymorphism:** Employ polymorphism with an abstract method in the `Enemy` class for handling enemy-specific behaviors such as movement patterns and attack styles, allowing for dynamic behavior based on the enemy type at runtime.
+- **Polymorphism:** `Boss` implements `Enemy`.
 
 ## Future Enhancements
+
+Some classes using libGDX can't be unit tested.
 
 Consider adding power-ups, diverse enemy types, background music, sound effects, and a menu system for game modes, difficulty levels, and customization.
 
