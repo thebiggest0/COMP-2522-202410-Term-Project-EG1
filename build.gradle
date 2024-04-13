@@ -14,6 +14,10 @@ buildscript {
     }
 }
 
+//plugins {
+//    id("net.bytebuddy.byte-buddy-gradle-plugin") version "1.14.13"
+//}
+
 allprojects {
     apply plugin: "eclipse"
 
@@ -58,8 +62,11 @@ project(":core") {
 
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
-        testImplementation 'org.mockito:mockito-core:5.11.0'
-        testImplementation 'net.bytebuddy:byte-buddy-agent:1.14.13'
+        testImplementation 'org.mockito:mockito-core:4.5.0'
+        testImplementation("net.bytebuddy:byte-buddy:1.12.9")
+//        testImplementation 'junit:junit:4.13.1'
+//        testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+
 
 
     }
