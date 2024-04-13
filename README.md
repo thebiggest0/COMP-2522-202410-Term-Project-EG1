@@ -72,7 +72,7 @@ The project leverages OOP concepts to structure the code effectively:
 
 - **Inheritance:** Consider implementing inheritance if different enemy types (regular Tie Fighters vs. boss) share common properties and behaviors. A base `Enemy` class could be created, with `TieFighter` and `Boss` inheriting from it, promoting code reuse and maintainability.
 - **Abstraction:** Abstract common functionality like movement, collision detection, and health management into the `Player` and `Enemy` classes, promoting cleaner code by separating core functionalities from specific implementations.
-- **Polymorphism:** Employ polymorphism with an abstract method in the `Enemy` class for handling enemy-specific behaviors such as movement patterns and attack styles, allowing for dynamic behavior based on the enemy type at runtime.
+- **Polymorphism:** `Boss` implements `Enemy`.
 
 ## Future Enhancements
 
