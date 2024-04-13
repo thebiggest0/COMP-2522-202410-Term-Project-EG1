@@ -46,7 +46,7 @@ public class TieFighter implements Enemy {
         position = _position;
         position_initial = position;
         sprite = new Sprite(image);
-//        sprite.setColor(color);
+        sprite.setColor(color);
         sprite.setScale(4);
     }
 

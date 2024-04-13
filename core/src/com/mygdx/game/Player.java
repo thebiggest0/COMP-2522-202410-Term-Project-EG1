@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.audio.Sound;
 
 /**
  * Represents the player's ship in the game world.
@@ -45,7 +44,6 @@ public class Player {
      * The movement speed of the player's bullet in units per second.
      */
     public float speedBullet = 1000;
-    private Sound firingSound;
 
     /**
      * Constructs a new Player instance with the specified textures for the ship and bullet.
@@ -58,7 +56,6 @@ public class Player {
         spriteBullet = new Sprite(imageBullet);
         sprite.setScale(4);
         spriteBullet.setScale(4);
-//        firingSound = Gdx.audio.newSound(Gdx.files.internal("bullet.wav"));
         position = new Vector2((float) Gdx.graphics.getWidth() /2,sprite.getScaleY()*sprite.getHeight()/2);
         positionBullet = new Vector2(0, 1000);
     }
@@ -69,7 +66,6 @@ public class Player {
      */
     public void Update(float deltaTime) {
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE) && positionBullet.y >= Gdx.graphics.getHeight()) {
-//            firingSound.play();
             positionBullet.x = position.x + 5;
             positionBullet.y = 0;
         }
