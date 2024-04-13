@@ -46,7 +46,7 @@ public class Boss implements Enemy{
      */
     public Boss(Vector2 position) {
         this.texture = new Texture("boss2.png"); // Assume you have a boss texture
-        this.position = new Vector2(Gdx.graphics.getWidth() / 2f - texture.getWidth() / 2f, Gdx.graphics.getHeight());
+        this.position = new Vector2(Gdx.graphics.getWidth() / 2f - texture.getWidth() / 2f - 110, Gdx.graphics.getHeight());
         this.hp = 15;
         this.boundingBox = new Rectangle(position.x, position.y, texture.getWidth() * scale, texture.getHeight() * scale);
     }
