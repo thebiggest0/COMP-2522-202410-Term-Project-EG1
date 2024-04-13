@@ -31,6 +31,18 @@ Star Wars Game is a 2D space shooter built with libGDX, demonstrating effective 
 3. **Verify Dependencies:** Ensure your project is configured with the necessary libGDX dependencies.
 4. **Launch the Game:** Run the `DesktopLauncher` class to embark on your spacefaring adventure.
 
+For Mac Users (**Extra steps might be required**)
+- In Edit configurations (top right of IDE -> click the ... -> Edit) 
+  - Click "+" and add an application
+  - Give it a name
+  - For **-cp** select “COMP-2522-202410-Term-Project-EG1.desktop.main” from the dropdown
+  - For **Add VM options** add "-XstartOnFirstThread" (if no Add VM options, go to modify options and add it)
+  - For **Main Class** add "com.mygdx.game.DesktopLauncher"
+    ![setup1](setup1.png)
+- In Settings (Menu -> IntelliJ IDEA -> Setting)
+  - Click "Build, Execution, Deployment" -> "Build Tools" -> "Gradle"
+  - Make sure the following selections are chosen: Build and run using: IntelliJ IDEA, Run Tests using: Gradle
+    ![setup2](setup2.png)
 ## Controls
 
 - **Movement:** A for Left, D for Right
