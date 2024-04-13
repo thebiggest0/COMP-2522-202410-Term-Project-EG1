@@ -32,7 +32,7 @@ Star Wars Game is a 2D space shooter built with libGDX, demonstrating effective 
 1. **Download and Install libGDX:** Obtain the libGDX libraries from the [official website](https://libgdx.com/).
 2. **Import Project:** Use your preferred IDE (e.g., Eclipse, IntelliJ IDEA) to import this project.
 3. **Verify Dependencies:** Ensure your project is configured with the necessary libGDX dependencies.
-4. **Launch the Game:** Run the `DesktopLauncher` class to embark on your spacefaring adventure.
+4. **Launch the Game:** Go to desktop->src[main]->com.mygdx.game folder, Run the `DesktopLauncher` class to embark on your spacefaring adventure.
 
 For Mac Users (**Extra steps might be required**)
 - In Edit configurations (top right of IDE -> click the ... -> Edit) 
