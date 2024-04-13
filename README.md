@@ -76,6 +76,8 @@ The project leverages OOP concepts to structure the code effectively:
 
 ## Future Enhancements
 
+Some classes using libGDX can't be unit tested.
+
 Consider adding power-ups, diverse enemy types, background music, sound effects, and a menu system for game modes, difficulty levels, and customization.
 
 
