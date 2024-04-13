@@ -143,7 +143,7 @@ public class GameScreen extends ScreenAdapter {
 
             if (amountTieFighterAlive == 0) {
                 this.count++;
-                if (this.count < 1) {
+                if (this.count < 5) {
                     this.level++;
                     speedTieFighter += 50;
                     for (int i = 0; i < tieFighterLength; i++) {
@@ -152,7 +152,7 @@ public class GameScreen extends ScreenAdapter {
                     offsetTieFighter = new Vector2(0, 0);
                     batch.end();
                     return;
-                } else if (this.count > 1) {
+                } else if (this.count > 5) {
                     this.bossStage = true;
                     font.draw(batch, "Final Boss", Gdx.graphics.getWidth() / 2f - 250, Gdx.graphics.getHeight() / 2f - 200);
                     if (boss.getHp() > 0) {
