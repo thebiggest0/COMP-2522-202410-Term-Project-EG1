@@ -70,13 +70,13 @@ The project leverages OOP concepts to structure the code effectively:
 
 ## Design Patterns
 
-- **Inheritance:** Consider implementing inheritance if different enemy types (regular Tie Fighters vs. boss) share common properties and behaviors. A base `Enemy` class could be created, with `TieFighter` and `Boss` inheriting from it, promoting code reuse and maintainability.
+- **Inheritance:** Consider implementing inheritance if different enemy types (regular Tie Fighters vs. boss) share common properties and behaviors. A base `Enemy` class is created, with `TieFighter` and `Boss` inheriting from it, promoting code reuse and maintainability.
 - **Abstraction:** Abstract common functionality like movement, collision detection, and health management into the `Player` and `Enemy` classes, promoting cleaner code by separating core functionalities from specific implementations.
 - **Polymorphism:** `Boss` implements `Enemy`.
 
 ## Future Enhancements
 
-Some classes using libGDX can't be unit tested.
+To ensure successful execution, all tests necessitate the utilization of LibGDX and Mockito. Despite encountering numerous errors and challenges, we dedicated considerable effort, investing over a week and more than 20 hours into resolving them. Presently, addressing these issues exceeds our current scope. Nonetheless, we aim to enhance our approach in future endeavors.
 
 Consider adding power-ups, diverse enemy types, background music, sound effects, and a menu system for game modes, difficulty levels, and customization.
 
